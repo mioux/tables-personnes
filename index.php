@@ -74,36 +74,48 @@
       <p>Le code département 20 est utilisé pour toute la corse, le code département 97 est utilisé pour la Guadeloupe, la Martinique, la Guyane et la Réunion</p>
     </div>
     <div>
-      <p><h2>National</h2></p>
-      <p>
-        <table id="national" class="display datatable">
-          <thead>
-            <tr>
-              <th>Sexe</th>
-              <th>Prénom (preusuel)</th>
-              <th>Année de naissance (annais)</th>
-              <th>Nombre</th>
-            </tr>
-          </thead>
-        </table>
-      </p>
+      <!-- Tabs navs -->
+      <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="ex1-tab-1" data-mbd-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">National</a>
+        </li>
+        <li>
+          <a class="nav-link active" id="ex1-tab-2" data-mbd-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Départemental</a>
+        </li>
+      </ul>
+      <!-- /Tabs navs -->
+
+      <!-- Tabs content -->
+      <div class="tab-content" id="ex1-content">
+        <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+          <table id="national" class="display datatable">
+            <thead>
+              <tr>
+                <th>Sexe</th>
+                <th>Prénom (preusuel)</th>
+                <th>Année de naissance (annais)</th>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        
+        <div class="tab-pane fade show active" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+          <table id="departement" class="display datatable">
+            <thead>
+              <tr>
+                <th>Sexe</th>
+                <th>Prénom (preusuel)</th>
+                <th>Année de naissance (annais)</th>
+                <th>Département (dpt)</th>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
     </div>
-    <div>
-      <p><h2>Par département</h2></p>
-      <p>
-        <table id="departement" class="display datatable">
-          <thead>
-            <tr>
-              <th>Sexe</th>
-              <th>Prénom (preusuel)</th>
-              <th>Année de naissance (annais)</th>
-              <th>Département (dpt)</th>
-              <th>Nombre</th>
-            </tr>
-          </thead>
-        </table>
-      </p>
-    </div>
+    <!-- /Tabs content -->
   </body>
 </html> 
   
