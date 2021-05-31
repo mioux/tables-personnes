@@ -17,7 +17,7 @@
       <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <!-- /JQUERY -->
 
-    <title>Assignation des prénoms depuis 2019</title>
+    <title>Assignation des prénoms depuis 1900 jusqu'en 2019</title>
 
     <!-- Activation DATATABLE -->
       <script language="ecmascript" type="text/ecmascript">
