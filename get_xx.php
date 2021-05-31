@@ -2,7 +2,7 @@
 function get($table)
 {
   ## Database configuration
-  include 'conf.php';
+  require_once('conf.php');
 
   ## Read value
   $draw = $_POST['draw'];
