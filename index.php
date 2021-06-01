@@ -81,7 +81,7 @@
 
   <body>
     <div>
-      <p><h1>Assignation des prénoms depuis 2019</h1></p>
+      <p><h1>Assignation des prénoms depuis 1900 jusqu'en 2019</h1></p>
       <p>Conditions portant sur les prénoms retenus :</p>
       <p>
         <ol>
