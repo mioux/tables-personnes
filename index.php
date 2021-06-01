@@ -51,7 +51,28 @@
               ]
           });
         });
+
+        $(document).ready(function(){$("#div_departement").hide();});
+
+        function showTab(tab)
+        {
+          $("#div_national").hide();
+          $("#div_departement").hide();
+          $("#div_" + tab).show();
+        }
       </script>
+      <style>
+        .tab
+        {
+          padding: 20px;
+          display: inline-block;
+          border-top: 1px solid black;
+          border-left: 1px solid black;
+          border-right: 1px solid black;
+          cursor: pointer;
+          color: blue;
+        }
+      </style>
     <!-- /Activation DATATABLE -->
   </head>
 
@@ -60,7 +81,7 @@
       <p><h1>Assignation des prénoms depuis 2019</h1></p>
       <p>Conditions portant sur les prénoms retenus :</p>
       <p>
-        <ol>      
+        <ol>
           <li>Sur la période allant de 1900 à 1945, le prénom a été attribué au moins 20 fois à des personnes de sexe féminin et/ou au moins 20 fois à des personnes de sexe masculin</li>
           <li>Sur la période allant de 1946 à 2019, le prénom a été attribué au moins 20 fois à des personnes de sexe féminin et/ou au moins 20 fois à des personnes de sexe masculin</li>
           <li>Pour une année de naissance donnée, le prénom a été attribué au moins 3 fois à des personnes de sexe féminin ou de sexe masculin</li>
@@ -71,8 +92,10 @@
     </div>
     <div>
 
-      <h2>National</h2>
-      <div>
+      <div  class="tab" onclick="showTab('national')">National</div>
+      <div  class="tab" onclick="showTab('departement')">Départemental</div>
+
+      <div id="div_national">
         <table id="national" class="display datatable">
             <thead>
               <tr>
@@ -84,9 +107,8 @@
             </thead>
           </table>
       </div>
-      <hr>
-      <h2>Départemental</h2>
-      <div>
+
+      <div id="div_departement">
         <table id="departement" class="display datatable">
             <thead>
               <tr>
@@ -101,4 +123,4 @@
       </div>
     </div>
   </body>
-</html> 
+</html>
