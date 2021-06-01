@@ -52,7 +52,10 @@
           });
         });
 
-        $(document).ready(function(){$("#div_departement").hide();});
+        $(document).ready(function() {
+          $("#div_departement").hide();
+          $(".datatable").width('100%');
+        });
 
         function showTab(tab)
         {
