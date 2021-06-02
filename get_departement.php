@@ -1,3 +1,12 @@
 <?php
 include("get_xx.php");
-get("dpt2019");
+$decenie = isset($_GET['decenie']) && $_GET['decenie'] == "1";
+
+if ($decenie == true)
+{
+  get("dptdec2019");
+}
+else
+{
+  get("dpt2019");
+}

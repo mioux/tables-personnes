@@ -37,7 +37,7 @@ function get($table)
       {
         $searchQuery .= " and (preusuel like '%".$term."%' or 
             annais = '".$term."' ";
-        if ($table == "dpt2019")
+        if ($table == "dpt2019" || $table == "dpt2019")
         {
           $searchQuery .= "or dpt = '".$term."' ";
         }
