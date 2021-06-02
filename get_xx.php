@@ -17,13 +17,18 @@ function get($table)
   $searchQuery = " ";
   if($searchValue != '')
   {
-    $searchQuery = " and (preusuel like '%".$searchValue."%' or 
-        annais = '".$searchValue."' ";
-    if ($table == "dpt2019")
+    $terms = explode(' ', $searchQuery);
+
+    foreach ($terms as $term)
     {
-      $searchQuery .= "or dpt = '".$searchValue."' ";
+      $searchQuery = " and (preusuel like '%".$term."%' or 
+          annais = '".$term."' ";
+      if ($table == "dpt2019")
+      {
+        $searchQuery .= "or dpt = '".$term."' ";
+      }
+      $searchQuery .= ")";
     }
-    $searchQuery .= ")";
   }
 
   ## Total number of records without filtering
