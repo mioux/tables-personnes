@@ -3,6 +3,8 @@
   $conf['db_user'] = 'user';
   $conf['db_password'] = 'password';
   $conf['db_name'] = 'prenoms';
+
+  $conf['DEBUG'] = false;
   
   $con = mysqli_connect($conf['db_host'],
                         $conf['db_user'],

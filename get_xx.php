@@ -1,6 +1,12 @@
 <?php
 function get($table)
 {
+  $DEBUG = isset($conf['DEBUG']) && $conf['DEBUG'] != false ? true : false;
+
+  if ($DEBUG == true)
+  {
+    $ERR = fopen('php://stderr', 'w');
+  }
   ## Database configuration
   require_once('conf.php');
 
@@ -17,17 +23,20 @@ function get($table)
   $searchQuery = " ";
   if($searchValue != '')
   {
-    $terms = explode(' ', $searchQuery);
+    $terms = explode(' ', $searchValue);
 
     foreach ($terms as $term)
     {
-      $searchQuery = " and (preusuel like '%".$term."%' or 
-          annais = '".$term."' ";
-      if ($table == "dpt2019")
+      if ($term != '')
       {
-        $searchQuery .= "or dpt = '".$term."' ";
+        $searchQuery .= " and (preusuel like '%".$term."%' or 
+            annais = '".$term."' ";
+        if ($table == "dpt2019")
+        {
+          $searchQuery .= "or dpt = '".$term."' ";
+        }
+        $searchQuery .= ")";
       }
-      $searchQuery .= ")";
     }
   }
 
@@ -45,6 +54,12 @@ function get($table)
 
   ## Fetch records
   $empQuery = "select * from ".$table." WHERE 1 ".$searchQuery." order by ".$columnName." ".$columnSortOrder." limit ".$row.",".$rowperpage;
+
+  if ($DEBUG == true)
+  {
+    fwrite($ERR, $empQuery . "\n");
+  }
+
   $empRecords = mysqli_query($con, $empQuery);
   $data = array();
 
@@ -73,5 +88,11 @@ function get($table)
     "aaData" => $data
   );
 
+  if ($DEBUG == true)
+  {
+    $message = json_encode($response);
+    fwrite($ERR, var_export($message));
+    fclose($ERR);
+  }
   echo json_encode($response);
 }
