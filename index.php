@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     <title>Assignation des prénoms depuis 1900 jusqu'en 2019</title>
 
     <!-- Activation DATATABLE -->
-      <script language="ecmascript" type="text/ecmascript">
+      <script>
         $(document).ready(function(){
           $('#national').DataTable({
               'processing': true,
