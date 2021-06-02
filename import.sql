@@ -56,7 +56,7 @@ CREATE OR REPLACE TABLE natdec2019 AS
 SELECT  sexe,
         preusuel,
         annais - (annais % 10) AS annais,
-        SUM(nombre)
+        SUM(nombre) as nombre
 FROM    nat2019
 GROUP BY sexe,
         preusuel,
@@ -67,7 +67,7 @@ SELECT  sexe,
         preusuel,
         annais - (annais % 10) AS annais,
         dpt,
-        SUM(nombre)
+        SUM(nombre) as nombre
 FROM    dpt2019
 GROUP BY sexe,
         preusuel,

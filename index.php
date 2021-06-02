@@ -52,8 +52,45 @@
           });
         });
 
+        $(document).ready(function(){
+          $('#national_decenie').DataTable({
+              'processing': true,
+              'serverSide': true,
+              'serverMethod': 'post',
+              'ajax': {
+                  'url':'get_national.php?decenie=1'
+              },
+              'columns': [
+                { data: 'sexe' },
+                { data: 'preusuel' },
+                { data: 'annais' },
+                { data: 'nombre' },
+              ]
+          });
+        });
+
+        $(document).ready(function(){
+          $('#departement_decenie').DataTable({
+              'processing': true,
+              'serverSide': true,
+              'serverMethod': 'post',
+              'ajax': {
+                  'url':'get_departement.php?decenie=1'
+              },
+              'columns': [
+                { data: 'sexe' },
+                { data: 'preusuel' },
+                { data: 'annais' },
+                { data: 'dpt' },
+                { data: 'nombre' },
+              ]
+          });
+        });
+
         $(document).ready(function() {
           $("#div_departement").hide();
+          $("#div_national_decenie").hide();
+          $("#div_departement_decenie").hide();
           $(".datatable").width('100%');
         });
 
@@ -61,6 +98,8 @@
         {
           $("#div_national").hide();
           $("#div_departement").hide();
+          $("#div_national_decenie").hide();
+          $("#div_departement_decenie").hide();
           $("#div_" + tab).show();
         }
       </script>
@@ -95,8 +134,10 @@
     </div>
     <div>
 
-      <div  class="tab" onclick="showTab('national')">National</div>
-      <div  class="tab" onclick="showTab('departement')">Départemental</div>
+      <div class="tab" onclick="showTab('national')">National</div>
+      <div class="tab" onclick="showTab('departement')">Départemental</div>
+      <div class="tab" onclick="showTab('national_decenie')">National (par décénie)</div>
+      <div class="tab" onclick="showTab('departement_decenie')">Départemental (par décénie)</div>
 
       <div id="div_national">
         <table id="national" class="display datatable">
@@ -124,6 +165,35 @@
             </thead>
           </table>
       </div>
+      </div>
+
+      <div id="div_national_decenie">
+        <table id="national_decenie" class="display datatable">
+            <thead>
+              <tr>
+                <th>Sexe</th>
+                <th>Prénom (preusuel)</th>
+                <th>Année de naissance (annais)</th>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+          </table>
+      </div>
+
+      <div id="div_departement_decenie">
+        <table id="departement_decenie" class="display datatable">
+            <thead>
+              <tr>
+                <th>Sexe</th>
+                <th>Prénom (preusuel)</th>
+                <th>Année de naissance (annais)</th>
+                <th>Département (dpt)</th>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+          </table>
+      </div>
+
     </div>
   </body>
 </html>
