@@ -91,16 +91,26 @@
           $("#div_departement").hide();
           $("#div_national_decenie").hide();
           $("#div_departement_decenie").hide();
+
+          $("#tab_national").css('font-weight', 'bold');
           $(".datatable").width('100%');
         });
 
+        function hideTab(tab)
+        {
+          $("#div_" + tab).hide();
+          $("#tab_" + tab).css('font-weight', 'normal');
+        }
+
         function showTab(tab)
         {
-          $("#div_national").hide();
-          $("#div_departement").hide();
-          $("#div_national_decenie").hide();
-          $("#div_departement_decenie").hide();
+          hideTab("national");
+          hideTab("departement");
+          hideTab("national_decenie");
+          hideTab("departement_decenie");
+
           $("#div_" + tab).show();
+          $("#tab_" + tab).css('font-weight', 'bold');
         }
       </script>
       <style>
@@ -134,10 +144,10 @@
     </div>
     <div>
 
-      <div class="tab" onclick="showTab('national')">National</div>
-      <div class="tab" onclick="showTab('departement')">Départemental</div>
-      <div class="tab" onclick="showTab('national_decenie')">National (par décénie)</div>
-      <div class="tab" onclick="showTab('departement_decenie')">Départemental (par décénie)</div>
+      <div class="tab" id="tab_national" onclick="showTab('national')">National</div>
+      <div class="tab" id="tab_departement" onclick="showTab('departement')">Départemental</div>
+      <div class="tab" id="tab_national_decenie" onclick="showTab('national_decenie')">National (par décénie)</div>
+      <div class="tab" id="tab_departement_decenie" onclick="showTab('departement_decenie')">Départemental (par décénie)</div>
 
       <div id="div_national">
         <table id="national" class="display datatable">
