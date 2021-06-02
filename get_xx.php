@@ -6,6 +6,12 @@ function get($table)
   if ($DEBUG == true)
   {
     $ERR = fopen('php://stderr', 'w');
+
+    $CHECK_GET = var_export($_GET);
+    $CHECK_POST = var_export($_POST);
+
+    fwrite($ERR, $CHECK_GET . "\n");
+    fwrite($ERR, $CHECK_POST . "\n");
   }
   ## Database configuration
   require_once('conf.php');
