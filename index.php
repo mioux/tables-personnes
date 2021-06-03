@@ -124,6 +124,8 @@
           cursor: pointer;
           color: blue;
         }
+
+        pre { display: inline-block; }
       </style>
     <!-- /Activation DATATABLE -->
   </head>
@@ -177,7 +179,6 @@
             </tr>
           </thead>
         </table>
-    </div>
     </div>
 
     <div id="div_national_decenie">
