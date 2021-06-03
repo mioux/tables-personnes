@@ -140,7 +140,7 @@
         <li>Pour une année de naissance donnée, le prénom a été attribué au moins 3 fois à des personnes de sexe féminin ou de sexe masculin</li>
       </ol>
       <p>Les effectifs des prénoms ne remplissant pas les conditions 1 et 2 sont regroupés (pour chaque sexe et chaque année de naissance) dans un enregistrement dont le champ prénom (PREUSUEL) prend la valeur «_PRENOMS_RARES_». Les effectifs des prénoms remplissant la condition 2 mais pas la condition 3 sont regroupés (pour chaque sexe et chaque prénom) dans un enregistrement dont le champ année de naissance (ANNAIS) est NULL.</p>
-      <p>Le code département 20 est utilisé pour toute la corse, le code département 97 est utilisé pour la Guadeloupe, la Martinique, la Guyane et la Réunion</p>
+      <p>Le code département 20 est utilisé pour toute la corse, les code département 971 à 974 sont utilisés pour la Guadeloupe, la Martinique, la Guyane et la Réunion</p>
       <p>Attention : la recherche se fait désormais sur le terme exact. Toutefois, il est possible de mettre des jokers dans la recherche</p>
       <ul>
         <li>Le signe % correspond à *, soit 0 ou plus caractères. Exemple : <pre>Sylv%</pre> recherche les prénoms commençant par « Sylv » (Sylvain, Sylvette, ...)</li>
