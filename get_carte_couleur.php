@@ -57,12 +57,16 @@ function get($conf, $con)
 
   $empRecords = mysqli_query($con, $empQuery);
   $data = array();
+  $raw = array();
 
   while ($row = mysqli_fetch_assoc($empRecords)) {
     if ($row["dpt"] == "20")
     {
-        $data["2A"] = getColor($max, $row["nombre"], $conf);
-        $data["2B"] = getColor($max, $row["nombre"], $conf);
+      $data["2A"] = getColor($max, $row["nombre"], $conf);
+      $data["2B"] = getColor($max, $row["nombre"], $conf);
+
+      $raw["2A"] = $row["nombre"];
+      $raw["2B"] = $row["nombre"];
     }
     else
     {
@@ -72,12 +76,14 @@ function get($conf, $con)
           $dpt = "0" . $dpt;
         }
         $data[$dpt] = getColor($max, $row["nombre"], $conf);
+        $raw[$dpt] = $row["nombre"];
     }
   }
   
   $result = array(
       "MAX" => $max,
-      "DATA" => $data
+      "DATA" => $data,
+      "RAW" => $raw
   );
 
   echo json_encode($result);

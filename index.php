@@ -7,11 +7,12 @@
 
     <!-- Source de la page : https://makitweb.com/datatables-ajax-pagination-with-search-and-sort-php/ -->
 
-    <!-- JQUERY -->
-      <link href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <!-- /JQUERY -->
+    <!-- JS -->
+      <link href='jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+      <script src="jquery-3.6.0.min.js"></script>
+      <script src="jquery.dataTables.min.js"></script>
+      <script src="jquery-ui.js"></script>
+    <!-- /JS -->
 
     <title>Assignation des prénoms depuis 1900 jusqu'en 2019</title>
 
@@ -133,25 +134,29 @@
             for (i = 1; i < 96; ++i)
             {
               dpt = (i < 10 ? "0" : "") + i.toString();
-              console.log("#map_" + dpt);
               if (dpt = "20")
               {
                 $("#map_2A").css("fill", "#86AAE0");
                 $("#map_2B").css("fill", "#86AAE0");
+                $("#map_2A").tooltip({ content: 0 });
+                $("#map_2B").tooltip({ content: 0 });
               }
               else
               {
                 $("#map_" + dpt).css("fill", "#86AAE0");
+                $("#map_" + dpt).tooltip({content: data["RAW"][dpt]});
               }
             }
 
             data = JSON.parse(code_html);
-            $("#max").text(data["MAX"]);
+            max = data["MAX"] > 0 ? data["MAX"] : 0;
+            $("#max").text(max);
             for (var dpt in data["DATA"])
             {
-              if(dpt > 0 && dpt < 96)
+              if(dpt > 0 && dpt < 96 || dpt == "2A" || dpt == "2B")
               {
                 $("#map_" + dpt).css("fill", data["DATA"][dpt]);
+                $("#map_" + dpt).tooltip({content: data["RAW"][dpt]});
               }
             }
           }
